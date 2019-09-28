@@ -19,6 +19,8 @@ type Squaket struct {
 }
 
 func (s *Squaket) Group (property string) (g map[interface {}][]interface {}, e error) {
+	g = map[interface {}][]interface {} {}
+
 	for _, element := range s.element {
 		value := reflect.ValueOf (element).FieldByName (property)
 		if value.IsValid () == false {
