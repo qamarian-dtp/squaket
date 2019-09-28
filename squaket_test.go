@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// TestSquaket () tests the Squaket data type.
 func TestSquaket (t *testing.T) {
 	// Testing function New (). ... {
 	sA, errA := New ([]interface {} {false, "1", 2})
