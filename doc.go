@@ -20,7 +20,7 @@
 //	group3: data4
 //
 // This kind of collection of data is what we mean by squaket. In practice, elements of a
-// squaket are expected to structs.
+// squaket are expected to be structs.
 //
 //
 // However, the elements of a squaket could have different properties, as long as they all
@@ -45,14 +45,24 @@
 //	element3 := company {"Twitter", "Lagos"}
 //
 //	squaketX, err := squaket.New ([]interface {element0, element1, element2, element3})
+//
 //	groups, err2 := squaketX.Group ("Location")
-//	fmt.Println (groups ["Lagos"], groups ["CA"]) // [element0, element3], [element1, element2]
+//
+//	fmt.Println (groups ["Lagos"], groups ["CA"])
+// 		// Output: [element0, element3], [element1, element2]
 //
 //
 // Things to note:
 //
 //	1. The name of a property must be a valid Golang identifier.
 //	2. The name of a property must start with an uppercase letter, like "Location" in
-// 		the example above.
+// 		the example above, not like "location".
+//
+// Why's the meaning of squaket?
+//
+// Well, we needed a name to describe a collection of things capable of being grouped, and
+// we thought of "square brackets". As we know, square brackets are used to group things,
+// in languages, mathematics, and programming. So we shortened it, ending up with
+// "squaket".
 //
 package squaket
