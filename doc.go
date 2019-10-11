@@ -1,5 +1,5 @@
 // Package squaket implements the squaket data type. A squaket is simply a collection of
-// composite data you could group based on a specific property.
+// records you could group based on a specific property.
 //
 //
 // Take for example:
@@ -11,7 +11,7 @@
 //	data5: name="e", age=1, location="m"
 //	data6: name="f", age=2, location="q"
 //
-// The data you see are composite data having three properties, namely: name, age, and
+// The data you see are records having three properties, namely: name, age, and
 // location. If we are to group them based on the similarity of their locations, we could
 // have the following groups:
 //
