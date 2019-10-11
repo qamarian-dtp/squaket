@@ -35,7 +35,7 @@
 //	"github.com/qamarian-dtp/squaket"
 //	"fmt"
 // )
-//
+// 
 // func main () {
 //	element0 := human {"Qamardeen Ibrahim Oladipupo", "Lagos"}
 //	element1 := company {"Steve Jobs", "Tim", "CA"}
@@ -50,12 +50,12 @@
 //
 //	fmt.Println (groups ["Lagos"], groups ["CA"]) // [element0, element4] [element2, element3]
 // }
-//
+// 
 // type human struct {
 //	Name string
 //	Location string
 // }
-//
+// 
 // type company struct {
 //	FounderName string
 //	ceo string
