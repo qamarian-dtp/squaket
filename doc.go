@@ -29,36 +29,38 @@
 // Real world example:
 //
 //
-// 	package main
+// package main
 //
-// 	import (
-//		"github.com/qamarian-dtp/squaket"
-//		"fmt"
-// 	)
+// import (
+//	"github.com/qamarian-dtp/squaket"
+//	"fmt"
+// )
 //
-// 	func main () {
-//		element0 := human {"Qamardeen", "Lagos"}
-//		element1 := company {"Steve Jobs", "Tim", "CA"}
-//		element2 := human {"Ibrahim", "CA"}
-//		element3 := company {"Some guy", "Unknown", "Lagos"}
+// func main () {
+//	element0 := human {"Qamardeen Ibrahim Oladipupo", "Lagos"}
+//	element1 := company {"Steve Jobs", "Tim", "CA"}
+//	element2 := human {"Ibrahim Sanz", "CA"}
+//	element3 := company {"Some guy", "Unknown", "Lagos"}
 //
-//		squaketX, _ := squaket.New (element0, element1, element2, element3)
+//	squaketX, errX := squaket.New (&element0, &element1, &element2, &element3)
+//	fmt.Println (errX)
 //
-//		groups, _ := squaketX.Group ("Location")
+//	groups, errY := squaketX.Group ("Location")
+//	fmt.Println (errY)
 //
-//		fmt.Println (groups ["Lagos"], groups ["CA"])
-//	}
+//	fmt.Println (groups ["Lagos"], groups ["CA"]) // [element0, element4] [element2, element3]
+// }
 //
-// 	type human struct {
-//		Name string
-//		Location string
-// 	}
+// type human struct {
+//	Name string
+//	Location string
+// }
 //
-// 	type company struct {
-//		FounderName string
-//		ceo string
-//		Location string
-//	}
+// type company struct {
+//	FounderName string
+//	ceo string
+//	Location string
+// }
 //
 //
 // Things to note:

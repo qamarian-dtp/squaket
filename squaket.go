@@ -6,28 +6,25 @@ import (
 	"regexp"
 )
 
-func init () {
-	var errX error
-
-	propertyPattern, errX = regexp.Compile ("^[A-Z][A-Za-z0-9_]*$")
-	if errX != nil {
-		buggyPackage = true
-	}
-}
-
-// New () creates a new squaket. All elements must be of kind struct, otherwise, a nil
+// New () creates a new squaket. All elements must be a struct pointer, otherwise, a nil
 // squaket and an error would be returned.
-func New (element ... interface{}) (*Squaket, error) {
+func New (element ... interface{}) (output *Squaket, err error) {
 	if buggyPackage == true {
 		return nil, errors.New ("Package is buggy.")
 	}
 
 	for _, someElement := range element {
-		if reflect.ValueOf (someElement).Kind () != reflect.Struct {
-			return nil, errors.New ("An element is not a struct.")
+		pointer := reflect.ValueOf (someElement)
+		if pointer.Kind () != reflect.Ptr {
+			return nil, errors.New ("An element is not a pointer.")
+		}
+		if pointer.Elem ().Kind () != reflect.Struct {
+			return nil, errors.New ("A pointer is not a struct pointer.")
 		}
 	}
-	return &Squaket {element}, nil
+	output = &Squaket {element}
+
+	return output, nil
 }
 
 type Squaket struct {
@@ -48,7 +45,7 @@ func (s *Squaket) Group (property string) (g map[interface {}][]interface {}, e 
 	g = map[interface {}][]interface {} {}
 
 	for _, element := range s.element {
-		value := reflect.ValueOf (element).FieldByName (property)
+		value := reflect.ValueOf (element).Elem ().FieldByName (property)
 		if value.IsValid () == false {
 			return nil, errors.New ("An element does not have that " +
 				"property.")
@@ -67,3 +64,12 @@ var (
 	propertyPattern *regexp.Regexp
 	buggyPackage bool = false
 )
+
+func init () {
+	var errX error
+
+	propertyPattern, errX = regexp.Compile ("^[A-Z][A-Za-z0-9_]*$")
+	if errX != nil {
+		buggyPackage = true
+	}
+}
