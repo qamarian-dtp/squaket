@@ -48,7 +48,7 @@
 //		groups, errY := squaketX.Group ("Location")
 //		fmt.Println (errY)
 //
-//		fmt.Println (groups ["Lagos"], groups ["CA"]) // [element0, element4] [element2, element3]
+//		fmt.Println (groups ["Lagos"], groups ["CA"]) // [element0, element3] [element1, element2]
 // 	}
 // 
 // 	type human struct {
