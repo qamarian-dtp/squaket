@@ -17,7 +17,7 @@ func init () {
 
 // New () creates a new squaket. All elements must be of kind struct, otherwise, a nil
 // squaket and an error would be returned.
-func New (element []interface{}) (*Squaket, error) {
+func New (element ... interface{}) (*Squaket, error) {
 	if buggyPackage == true {
 		return nil, errors.New ("Package is buggy.")
 	}

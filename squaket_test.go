@@ -1,14 +1,16 @@
 package squaket
 
 import (
-	"gopkg.in/qamarian-lib/str.v2"
+	"gopkg.in/qamarian-lib/str.v3"
 	"testing"
 )
 
 // TestSquaket () tests the Squaket data type.
 func TestSquaket (t *testing.T) {
+	str.PrintEtr ("Test started.", "nte", "TestSquaket ()")
+
 	// Testing function New (). ... {
-	sA, errA := New ([]interface {} {false, "1", 2})
+	sA, errA := New (false, "1", 2)
 	if sA != nil {
 		str.PrintEtr ("Test failed! Ref: 0", "err", "TestSquaket ()")
 		t.FailNow ()
@@ -19,12 +21,13 @@ func TestSquaket (t *testing.T) {
 	}
 	// ... }
 
-	// Testing method Group (). Confirming it does not invalid property name. ... {
+	// Testing method Group (). Confirming it does not accept invalid property name.
+	// ... {
 	e0 := testType1 {"Ibrahim Qamardeen", 22, "Oyo"}
 	e1 := testType2 {"Qamarian", "IBZ", "Oyo"}
 	e2 := testType3 {"Birth", "22/04", "Lag"}
 
-	sB, errB := New ([]interface {} {e0, e1, e2})
+	sB, errB := New (e0, e1, e2)
 	if errB != nil {
 		str.PrintEtr ("Test failed! Ref: 2", "err", "TestSquaket ()")
 		t.FailNow ()
@@ -50,7 +53,7 @@ func TestSquaket (t *testing.T) {
 	e4 := testType2 {"Qamarian", "IBZ", "Oyo"}
 	e5 := testType3 {"Birth", "22/04", "Lag"}
 
-	sH, errH := New ([]interface {} {e3, e4, e5})
+	sH, errH := New (e3, e4, e5)
 	if errH != nil {
 		str.PrintEtr ("Test failed! Ref: 4", "err", "TestSquaket ()")
 		t.FailNow ()
@@ -72,7 +75,7 @@ func TestSquaket (t *testing.T) {
 	e7 := testType2 {"Qamarian", "IBZ", "Oyo"}
 	e8 := testType3 {"Birth", "22/04", "Lag"}
 
-	sJ, errJ := New ([]interface {} {e6, e7, e8})
+	sJ, errJ := New (e6, e7, e8)
 	if errJ != nil {
 		str.PrintEtr ("Test failed! Ref: 7", "err", "TestSquaket ()")
 		t.FailNow ()

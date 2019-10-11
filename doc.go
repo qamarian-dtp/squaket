@@ -28,28 +28,37 @@
 //
 // Real world example:
 //
-//	type struct human {
-//		Name string
-//		Location string
+//
+// 	package main
+//
+// 	import (
+//		"github.com/qamarian-dtp/squaket"
+//		"fmt"
+// 	)
+//
+// 	func main () {
+//		element0 := human {"Qamardeen", "Lagos"}
+//		element1 := company {"Steve Jobs", "Tim", "CA"}
+//		element2 := human {"Ibrahim", "CA"}
+//		element3 := company {"Some guy", "Unknown", "Lagos"}
+//
+//		squaketX, _ := squaket.New (element0, element1, element2, element3)
+//
+//		groups, _ := squaketX.Group ("Location")
+//
+//		fmt.Println (groups ["Lagos"], groups ["CA"])
 //	}
 //
-//	type struct company
+// 	type human struct {
+//		Name string
+//		Location string
+// 	}
+//
+// 	type company struct {
 //		FounderName string
 //		ceo string
 //		Location string
 //	}
-//
-//	element0 := human {"Qamardeen", "Lagos"}
-//	element1 := company {"Apple", "CA"}
-//	element2 := human {"Ibrahim", "CA"}
-//	element3 := company {"Twitter", "Lagos"}
-//
-//	squaketX, err := squaket.New ([]interface {element0, element1, element2, element3})
-//
-//	groups, err2 := squaketX.Group ("Location")
-//
-//	fmt.Println (groups ["Lagos"], groups ["CA"])
-// 		// Output: [element0, element3], [element1, element2]
 //
 //
 // Things to note:
